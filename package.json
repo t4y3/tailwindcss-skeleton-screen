@@ -1,6 +1,6 @@
 {
   "name": "tailwindcss-skeleton-screen",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Just add the class. Not by width or height, but by number of characters.",
   "main": "src/index.js",
   "scripts": {},
@@ -8,14 +8,23 @@
     "type": "git",
     "url": "git+ssh://git@github.com/t4y3/tailwindcss-skeleton-screen.git"
   },
-  "keywords": ["tailwindcss", "css", "skeleton screen", "skeleton"],
+  "keywords": [
+    "tailwindcss",
+    "css",
+    "skeleton screen",
+    "skeleton"
+  ],
   "author": "Yuki Teraoka (https://github.com/t4y3)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/t4y3/tailwindcss-skeleton-screen/issues"
   },
   "homepage": "https://github.com/t4y3/tailwindcss-skeleton-screen#readme",
+  "peerDependencies": {
+    "tailwindcss": ">=3.0.0"
+  },
   "devDependencies": {
-    "prettier": "^2.8.3"
+    "prettier": "^2.8.3",
+    "tailwindcss": "^3.2.4"
   }
 }
