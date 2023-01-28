@@ -6,24 +6,11 @@ Just add the class. Not by width or height, but by number of characters.
 
 ![](.github/diff.png)
 
-### diff
+### PR for checking diff
 
-```diff
-<         <img className="h-48 w-full object-cover" src="https://images.unsplash.com/xxxxx" alt=""/>
----
->         <div className="h-48 w-full object-cover ss-object"></div>
+https://github.com/t4y3/tailwindcss-skeleton-screen/pull/2/files
 
-<             <a href="#" className="hover:underline">プラグイン</a>
----
->             <a href="#" className="hover:underline ss-text-[5]"></a>
-
-<             <p className="text-xl font-semibold text-gray-900">正常時とマークアップを限りなく近づける</p>
-<             <p className="mt-3 text-base text-gray-500">スケルトンスクリーンは...</p>
----
->             <p className="text-xl font-semibold text-gray-900 ss-text-[19]"></p>
->             <p className="mt-3 text-base text-gray-500 ss-text-[103]"></p>
-
-```
+![](.github/diff_code.png)
 
 ### Number of characters, not Height and width
 ```tsx
