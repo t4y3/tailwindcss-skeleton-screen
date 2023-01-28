@@ -4,13 +4,13 @@ Just add the class. Not by width or height, but by number of characters.
 ## Concept
 - `As close as possible to normal markup`
 
-![](.github/diff.png)
+![](.github/main.png)
 
-### PR for checking diff
+### Differences from Others
 
-https://github.com/t4y3/tailwindcss-skeleton-screen/pull/2/files
+![](.github/diff_others.png)
 
-![](.github/diff_code.png)
+[PR for checking diff](https://github.com/t4y3/tailwindcss-skeleton-screen/pull/2/files)
 
 ### Number of characters, not Height and width
 ```tsx
