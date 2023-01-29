@@ -1,6 +1,6 @@
 {
   "name": "tailwindcss-skeleton-screen",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Just add the class. Not by width or height, but by number of characters.",
   "main": "src/index.js",
   "scripts": {},
