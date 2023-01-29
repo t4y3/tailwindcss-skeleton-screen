@@ -1,10 +1,21 @@
 # tailwindcss-skeleton-screen
 Just add the class. Not by width or height, but by number of characters.
 
-## Concept
-- `As close as possible to normal markup`
-
 ![](.github/main.png)
+
+## Concept
+
+`As close as possible to normal markup`
+
+Skeleton display is performed only when there are no children.  
+Just add the class of `ss-text-[n]`.
+
+```jsx
+{/* Skeleton displayed only if empty */}
+<p className="text-base text-gray-600 ss-text-[71]">{text}</p>
+```
+
+
 
 ### Differences from Others
 
@@ -13,29 +24,29 @@ Just add the class. Not by width or height, but by number of characters.
 [PR for checking diff](https://github.com/t4y3/tailwindcss-skeleton-screen/pull/2/files)
 
 ### Number of characters, not Height and width
-```tsx
-// ❌ 
-<p className="h-14 w-full bg-gray-100" />
+```html
+<!-- ❌ -->
+<div class="h-4 w-full bg-gray-200"></div>
 ```
-↓
-```tsx
-// 😍
-<p className="ss-text-[24]" />
+
+```html
+<-- 😍 -->
+<p class="ss-text-[24]"></p>
 ```
 
 ### Wrapping of long sentences is also supported
-```tsx
-// ❌
-<p className="h-14 w-full bg-gray-100" />
-<p className="h-14 w-full bg-gray-100" />
-<p className="h-14 w-1/2 bg-gray-100" />
-```
-↓
-```tsx
-// 😍 
-<p className="ss-text-[120]" />
+```html
+<!-- ❌ -->
+<div class="h-4 max-w-[360px] bg-gray-200 mb-2.5"></div>
+<div class="h-4 max-w-[360px] bg-gray-200 mb-2.5"></div>
+<div class="h-4 max-w-[360px] bg-gray-200 mb-2.5"></div>
+<div class="h-4 max-w-[80px] bg-gray-200"></div>
 ```
 
+```html
+<-- 😍 -->
+<p class="text-base text-gray-600 ss-text-[71]"></p>
+```
 
 ## Installation
 Install the plugin from npm:
