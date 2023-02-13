@@ -19,18 +19,26 @@ module.exports = plugin(
         const content = rows.join(`\\A`);
         return {
           "&:empty:before": {
-            content: `"${content}"`,
-            "background-color": theme("skeletonScreen.color"),
-            "white-space": "break-spaces",
-            "word-break": "break-all",
-          },
-          "&.truncate:empty:before": {
-            "white-space": "normal",
+            "--tw-content": `"${content}"`
           },
         };
       },
     });
     addUtilities({
+      '[class*="ss-text-"]': {
+        "&:empty:before": {
+          content: "var(--tw-content)",
+          "background-color": theme("skeletonScreen.color"),
+          "white-space": "break-spaces",
+          "word-break": "break-all",
+          "border-radius": theme("skeletonScreen.borderRadius"),
+          "box-decoration-break": "clone",
+          "-webkit-box-decoration-break": "clone",
+        },
+        "&.truncate:empty:before": {
+          "white-space": "normal",
+        },
+      },
       ".ss-object:empty": {
         "background-color": theme("skeletonScreen.color"),
       },
@@ -40,7 +48,8 @@ module.exports = plugin(
     theme: {
       extend: {
         skeletonScreen: {
-          color: "#cbd5e1",
+          color: "#e5e7eb",
+          borderRadius: "inherit",
         },
       },
     },
