@@ -63,7 +63,8 @@ module.exports = {
   theme: {
     extend: {
       skeletonScreen: {
-        color: '#d0d0d0' // optional
+        color: '#d0d0d0', // optional
+        borderRadius: "4px" // optional
       }
     }
   },
