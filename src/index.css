@@ -1,0 +1,24 @@
+@plugin "./index.js";
+
+@theme {
+  --skeleton-color: #e5e7eb;
+  --skeleton-radius: .375rem;
+}
+
+[class*="ss-text-"]:empty::before {
+  content: var(--tw-content);
+  background-color: var(--skeleton-color);
+  white-space: break-spaces;
+  word-break: break-all;
+  border-radius: var(--skeleton-radius);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+[class*="ss-text-"].truncate:empty::before {
+  white-space: normal;
+}
+
+.ss-object:empty {
+  background-color: var(--skeleton-color);
+}

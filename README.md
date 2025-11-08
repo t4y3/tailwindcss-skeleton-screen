@@ -48,41 +48,85 @@ Just add the class of `ss-text-[n]`.
 <p class="text-base text-gray-600 ss-text-[71]"></p>
 ```
 
-## Installation
-Install the plugin from npm:
+## Installation (Tailwind CSS v4)
+Install from npm:
 
-```shell
+```bash
 npm install -D tailwindcss-skeleton-screen
 ```
 
-Then add the plugin to your tailwind.config.js file:
+Add it to your Tailwind entry CSS (v4 style).
 
-```js
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  theme: {
-    extend: {
-      skeletonScreen: {
-        color: '#d0d0d0', // optional
-        borderRadius: "4px" // optional
-      }
-    }
-  },
-  plugins: [
-    require('tailwindcss-skeleton-screen')
-  ]
-};
-
+Import the package CSS (recommended)
+```css
+/* tailwind.css (your entry processed by Tailwind v4) */
+@import "tailwindcss-skeleton-screen";
 ```
 
-## Basic usage
-- Only the number of characters is specified.
-- The height can be changed by font-size and light-height, so there is no need to specify it for skeleton.
+No tailwind.config.js setup is required for v4.
 
+## Basic usage (v4)
+- Specify only the number of characters; height follows `font-size` and `line-height`.
 
-| class           |   |
-|-----------------|---|
-| ss-object       | Display skeleton with background-color |
-| ss-text-[n]     | Display skeleton for n characters |
-| ss-text-[n/n/n] | The number of characters per line can be specified by separating each line with a "slash (/)". |
+```html
+<!-- Shows only when element is empty -->
+<p class="text-base text-gray-600 ss-text-[71]"></p>
+```
 
+Multiline example (per-line counts by slash):
+```html
+<p class="ss-text-[24/24/12]"></p>
+```
+
+Single-line truncation:
+```html
+<p class="truncate ss-text-[40]"></p>
+```
+
+Utilities
+
+| class            | description |
+|------------------|-------------|
+| `ss-object`      | Block skeleton with background color |
+| `ss-text-[n]`    | Text skeleton for `n` characters |
+| `ss-text-[a/b]`  | Per-line characters by slash (multiline) |
+
+Notes
+- Skeletons render only when the element is `:empty`.
+- Combine with any text utilities; skeleton follows typography.
+
+## Customize (v4 `@theme`)
+This package exposes CSS custom properties via Tailwind v4 `@theme`:
+
+```css
+@theme {
+  --skeleton-color: #e5e7eb; /* default */
+  --skeleton-radius: .375rem; /* default (≈6px) */
+}
+```
+
+Override globally:
+```css
+@theme {
+  --skeleton-color: #f3f4f6;
+  --skeleton-radius: .5rem;
+}
+```
+
+Or locally per scope:
+```css
+.card { /* affects descendants */
+  --skeleton-color: #e2e8f0;
+  --skeleton-radius: .25rem;
+}
+```
+
+## How it works (v4)
+- The CSS entry uses `@plugin` to load the package plugin and defines `@theme` tokens.
+- The plugin generates placeholder content using full‑width spaces and assigns it to `--tw-content` only when the element is `:empty`.
+- The CSS applies background and radius to the pseudo element so your normal markup stays intact.
+
+## Migration from v3
+- v3 `tailwind.config.js` plugin registration is no longer needed.
+- Use the v4 CSS directives (`@import` or `@plugin`) as shown above.
+- Theme options moved to CSS custom properties (`@theme`).
